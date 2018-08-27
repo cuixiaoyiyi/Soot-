@@ -16,17 +16,25 @@ java -version // 查看当前的 jdk 版本
 需要填写的内容为：
 ```
 # 设置自带的 jdk1.6
-export JAVA_6_HOME=`/usr/libexec/java_home -v 1.6`
-# 设置 jdk1.7
-export JAVA_7_HOME=`/usr/libexec/java_home -v 1.7`
-# 设置 jdk1.8
-export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`
+JAVA_6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+  
+JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
 
-# 默认 jdk 使用1.6版本
-export JAVA_HOME=$JAVA_6_HOME
+JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home
+
+JAVA_LATEST_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home
+
+CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+PATH=$JAVA_HOME/bin:$PATH:
+
+export JAVA_HOME=$JAVA_LATEST_HOME
+
+export CLASSPATH
 
 # alias 命令动态切换 jdk 版本
 alias jdk6="export JAVA_HOME=$JAVA_6_HOME"
 alias jdk7="export JAVA_HOME=$JAVA_7_HOME"
 alias jdk8="export JAVA_HOME=$JAVA_8_HOME"
+alias jdk ="export JAVA_HOME=$JAVA_LATEST_HOME"
 ```
